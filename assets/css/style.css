@@ -28,6 +28,7 @@
   border: 20px, solid black;
   outline: 100px black;
   text-align: center;
+  overflow: scroll;
 }
 
 #artbox {
