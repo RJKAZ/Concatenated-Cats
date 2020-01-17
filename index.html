@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Music Player</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css">
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
@@ -16,6 +17,7 @@
       <h2>This will be where the Music Genre is selected</h2>
        <form>
        <select id="category-select">
+          <!-- do we need to add a default option? -->
         </select>
       </form>
     </div>
@@ -35,14 +37,19 @@
     </div>
 
     <div class="player-spot">
-    <h2> This is where the actual music player will be, and where Play, pause, fastfoward, rewind</h2>
+    <h2 id="music-player"> 
+      <i id="play-button" data-state="play" class="fas fa-play"></i>
+    </h2>
     </div>
   </div>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+  <script src="https://sdk.scdn.co/spotify-player.js"></script>
   
   <script src="./assets/js/oauth.js"></script>
+  <script src="./assets/js/player.js"></script>
   <script src="./assets/js/script.js"></script>
 </body>
 </html>
