@@ -13,8 +13,8 @@
 }
 
 .player-spot {
-  background-color:grey;
   height: 100px;
+  background: darkgray;
   margin-left: 50px;
   margin-right: 50px;
   text-align: center;
@@ -33,7 +33,6 @@
 
 #artbox {
   float:left;
-  background: lightsalmon;
   width:50%;
   height: 280px;
   text-align: center;
@@ -45,4 +44,10 @@
   width: 25%;
   height: 280px;
   text-align: center;
+}
+
+.background-art {
+  background-image: url("../images/testback.jpg");
+  background-position: center;
+  background-size: 50%;
 }
