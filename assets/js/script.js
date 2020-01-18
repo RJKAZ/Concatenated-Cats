@@ -68,6 +68,9 @@ function playPlaylist(playlistUri) {
     }
 
   }).then(function (playerResponse) {
+    $playBtn.setAttribute("data-state", "play");
+    $playBtn.classList.remove("fa-play");
+    $playBtn.classList.add("fa-pause");
 
   });
 }
@@ -81,8 +84,8 @@ function resumeTrack() {
     }
   }).then(function (playResponse) {
     $playBtn.setAttribute("data-state", "play");
-    $playBtn.classList.remove("fa-pause");
-    $playBtn.classList.add("fa-play");
+    $playBtn.classList.remove("fa-play");
+    $playBtn.classList.add("fa-pause");
   });
 }
 
@@ -95,8 +98,8 @@ function pauseTrack() {
     }
   }).then(function (pauseResponse) {
     $playBtn.setAttribute("data-state", "pause");
-    $playBtn.classList.remove("fa-play");
-    $playBtn.classList.add("fa-pause");
+    $playBtn.classList.remove("fa-pause");
+    $playBtn.classList.add("fa-play");
   });
 }
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
