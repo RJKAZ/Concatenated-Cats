@@ -89,7 +89,7 @@ function spotifyLogin() {
   // set state in localStorage (will read when we get it back)
   localStorage.setItem(stateKey, state);
   // Set scope for authentication privileges
-  const scope = 'streaming user-read-private user-read-email user-read-playback-state user-modify-playback-state';
+  const scope = 'streaming user-read-private user-read-email user-read-playback-state user-read-currently-playing user-modify-playback-state';
 
   // build out super long url
   let url = 'https://accounts.spotify.com/authorize';

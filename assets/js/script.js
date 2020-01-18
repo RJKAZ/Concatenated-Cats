@@ -37,17 +37,42 @@ function getCategories(){
   });
 }
 
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-//OTHER FUNCTIONS
-function selectCategory(){
-  console.log($categorySelect.value);
+function getCategorysPlaylists(categoryId) {
+  $.ajax({
+    url: `https://api.spotify.com/v1/browse/categories/${categoryId}/playlists`,
+    headers: {
+      //for authorizing logged in user
+      'Authorization': 'Bearer ' + access_token
+    }
+  }).then(function (playlistsResponse) {
+    //lets get the uri of a random playlist for now, maybe later we will let user specify:
+    var randomIndex = Math.floor(Math.random() * (playlistsResponse.playlists.items).length);
+    console.log(playlistsResponse.playlists.items[randomIndex]);
+    var playlistUri = playlistsResponse.playlists.items[randomIndex].uri;
+
+    //we want to send the playlist to the player
+    playPlaylist(playlistUri);
+  });
 }
 
-function playTrack(){
+function playPlaylist(playlistUri) {
+  console.log(playlistUri);
+  $.ajax({
+    url: `https://api.spotify.com/v1/me/player/play?device_id=${playerId}`,
+    method: "PUT",
+    data: JSON.stringify({
+      'context_uri': playlistUri
+    }),
+    headers: {
+      'Authorization': "Bearer " + access_token
+    }
 
+  }).then(function (playerResponse) {
+
+  });
 }
 
-function playTrack(){
+function resumeTrack() {
   $.ajax({
     url: `https:///api.spotify.com/v1/me/player/play?device_id=${playerId}`,
     method: "PUT",
@@ -61,7 +86,7 @@ function playTrack(){
   });
 }
 
-function pauseTrack(){
+function pauseTrack() {
   $.ajax({
     url: `https:///api.spotify.com/v1/me/player/pause?device_id=${playerId}`,
     method: "PUT",
@@ -74,6 +99,11 @@ function pauseTrack(){
     $playBtn.classList.add("fa-pause");
   });
 }
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+//OTHER FUNCTIONS
+function selectCategory(){
+  getCategorysPlaylists($categorySelect.value);
+}
 
 function handlePlayPause(){
   var playBtnState = $playBtn.getAttribute("data-state");
@@ -84,7 +114,7 @@ function handlePlayPause(){
       pauseTrack();
     }else if(playBtnState == "pause"){
       //change it to play
-      playTrack();
+      resumeTrack();
     }
 
 }
