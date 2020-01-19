@@ -1,9 +1,11 @@
-.genre-dropdown {
-  background-color:grey;
+.genre-selector {
+  background-image: linear-gradient(black, #7986cb);
+  color: white;
   height: 100px;
   margin-left: 50px;
   margin-right: 50px;
   text-align: center;
+
 }
 
 .core-body {
@@ -12,12 +14,26 @@
   margin-right: 50px;
 }
 
-.player-spot {
+.flex-player {
+  display: flex;
   height: 100px;
-  background: darkgray;
+  width: 100%;
+  background-image: linear-gradient(#7986cb, black);
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  justify-content: center;
+  
+}
+
+.flex-player > div {
+  background-color:#7986cb;
+  margin:10px;
+  padding:20px;
+  font-size: 30px;
+  border-radius: 50px;
   margin-left: 50px;
   margin-right: 50px;
-  text-align: center;
 }
 
 #lyricbox {
@@ -44,10 +60,11 @@
   width: 25%;
   height: 280px;
   text-align: center;
+
 }
 
-.background-art {
+body {
   background-image: url("../images/testback.jpg");
-  background-position: center;
-  background-size: 50%;
+  background-size: cover;
+  bottom: 0;
 }
