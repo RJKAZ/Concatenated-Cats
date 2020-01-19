@@ -1,7 +1,10 @@
+/* 
+
+HANDLE OAUTH 
+
+*/
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 var spotify_CLIENT = "909a31103cc74365a80f64ce534cca73";
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-var $loginBtn = document.querySelector("#login-button");
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 let stateKey = 'spotify_auth_state';
 
@@ -21,7 +24,6 @@ let access_token = params.access_token,
  * Obtains parameters from the hash of the URL
  * @return Object
  */
-// NO NEED TO WORRY ABOUT THIS
 function getHashParams() {
   const hashParams = {};
   let e,
@@ -41,7 +43,6 @@ function getHashParams() {
  * @param  {number} length The length of the string
  * @return {string} The generated string
  */
-// NO NEED TO WORRY ABOUT THIS
 function generateRandomString(length) {
   let text = '';
   const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -71,13 +72,9 @@ if (access_token && (state == null || state !== storedState)) {
         }
       })
       .then(function (response) {
-        console.log(response);
+        console.log("logged in");
         $("#login-button").hide();
         // $("#app-body").show();
-
-        // userId = response.id;
-        // $("#profile-info").html(`<h3>${response.display_name}</h3>`);
-        // <img class="img-fluid" src="${response.images[0].url}"/>
       });
   }
 }
@@ -92,7 +89,7 @@ function spotifyLogin() {
   // set state in localStorage (will read when we get it back)
   localStorage.setItem(stateKey, state);
   // Set scope for authentication privileges
-  const scope = 'streaming user-read-private user-read-email user-read-playback-state user-modify-playback-state';
+  const scope = 'streaming user-read-private user-read-email user-read-playback-state user-read-currently-playing user-modify-playback-state';
 
   // build out super long url
   let url = 'https://accounts.spotify.com/authorize';
@@ -106,5 +103,3 @@ function spotifyLogin() {
   // change pages and go to the spotify login page
   window.location = url;
 }
-
-$loginBtn.addEventListener("click", spotifyLogin);
