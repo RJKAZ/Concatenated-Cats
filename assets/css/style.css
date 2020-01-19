@@ -1,4 +1,4 @@
-.genre-selector {
+.header {
   background-image: linear-gradient(black, #7986cb);
   color: white;
   height: 100px;
@@ -63,8 +63,24 @@
 
 }
 
+.currentsong-info {
+  text-align: center;
+}
+
+#title-now {
+  font-size: 1.5rem;
+}
+
+#artist-now {
+  font-size: 1rem;
+}
+
 body {
   background-image: url("../images/testback.jpg");
   background-size: cover;
   bottom: 0;
+}
+
+.hide {
+  display: none;
 }

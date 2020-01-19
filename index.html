@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,55 +13,65 @@
 
 <body>
 
-    <div class="genre-selector">
-      <button class="" id="login-button">Login</button>
-      <h2>This will be where the Music Genre is selected</h2>
-      <form>
-       <select id="category-select">
-          <!-- do we need to add a default option? -->
-       </select>
-      </form>
+  <header class="header">
+    <button id="login-button">Login</button>
+    <div class ="hide" id="select-genre">
+    <h2>Select a Category:</h2>
+    <form>
+      <select id="category-select">
+        <!-- do we need to add a default option? -->
+      </select>
+    </form>
     </div>
-  
-    <br>
-  
-    <div class="core-body">
-      <div id = "lyricbox">
-        <h2>This is where the lyrics will be stored
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas libero eveniet soluta accusantium ea dignissimos perspiciatis distinctio nemo. Sequi cumque facere, dolore doloremque sapiente fugit illum adipisci quo voluptatibus enim.
-        </h2>
-      </div>
-      <div id = "artbox">
-        <h2>This is where the album art will go</h2>
-      </div>
-      <div id = "playedbox">
-        <h2>This box will display what's currently played, as well as what previously played and what will play next.</h2>
-      </div> 
+  </header>
+
+  <br>
+
+  <div class="core-body">
+    <div id="lyricbox">
+      <h2>This is where the lyrics will be stored
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas libero eveniet soluta accusantium ea dignissimos
+        perspiciatis distinctio nemo. Sequi cumque facere, dolore doloremque sapiente fugit illum adipisci quo
+        voluptatibus enim.
+      </h2>
     </div>
-  
-    <div class="flex-player">
-                <div id="playback_controls">
-                    <button onclick="skip('back')"><i class="fa fa-fast-backward"></i></button>
-                    <button onclick="playpause()"><i class="fa fa-play"></i><i class="fa fa-pause"></i></button>
-                    <button onclick="stop()"><i class="fa fa-stop"></i></button>
-                    <button onclick="skip('fwd')"><i class="fa fa-fast-forward"></i></button>
-                </div>
-                <div id="seekbar">
-                    <input type="range" oninput="setPos(this.value)" id="seek" value="0" max="">
-                </div>
-                <div class="volume_controls">
-                    <button id="mute" onclick="mute()"><i class="fa fa-volume-up"></i></button>
-                    <input type="range" id="volume" oninput="setVolume(this.value)" min="0" max="1" step="0.01" value="1">
-                </div>
-      </div>
+    <div id="artbox">
+      <img id="albumart-now" src="" alt="">
+    </div>
+    <div id="playedbox">
+      <h2>This box will display what's currently played, as well as what previously played and what will play next.</h2>
+    </div>
+  </div>
+
+  <div class="flex-player">
+    <div class="currentsong-info">
+      <div id="title-now"></div>
+      <div id="artist-now"></div>
+    </div c>
+    <div id="playback_controls">
+      <button onclick="skip('back')"><i class="fa fa-fast-backward"></i></button>
+      <button id="play-button"><i class="fa fa-play"></i><i class="fa fa-pause"></i></button>
+      <button onclick="stop()"><i class="fa fa-stop"></i></button>
+      <!-- stop means that we should clear what's currently playing... i have to figure out how to do this -->
+      <button onclick="skip('fwd')"><i class="fa fa-fast-forward"></i></button>
+    </div>
+    <!-- <div id="seekbar">
+      <input type="range" oninput="setPos(this.value)" id="seek" value="0" max="">
+    </div> -->
+    <!-- <div class="volume_controls">
+      <button id="mute" onclick="mute()"><i class="fa fa-volume-up"></i></button>
+      <input type="range" id="volume" oninput="setVolume(this.value)" min="0" max="1" step="0.01" value="1">
+    </div> -->
+  </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
   <script src="https://sdk.scdn.co/spotify-player.js"></script>
-  
+
   <script src="./assets/js/oauth.js"></script>
   <script src="./assets/js/player.js"></script>
   <script src="./assets/js/script.js"></script>
 </body>
+
 </html>

@@ -7,7 +7,19 @@ HANDLE INTERACTING WITH THE PAGE AND WITH OTHER SCRIPTS
 //DOM VARIABLES
 var $categorySelect = document.querySelector("#category-select"); //refers to the select form element
 var $loginBtn = document.querySelector("#login-button");
+
+//music controls
 var $playBtn = document.querySelector("#play-button");
+
+//for displaying current track
+var $albumArtSlot = document.querySelector("#albumart-now");
+var $trackArtistSlot = document.querySelector("#artist-now");;
+var $trackTitleSlot = document.querySelector("#title-now");
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+//OTHER VARIABLES
+var currentSong;
+var currentArtist;
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 //AJAX CALLS
@@ -68,9 +80,19 @@ function playPlaylist(playlistUri) {
     }
 
   }).then(function (playerResponse) {
+    //when we send the playlist we want to display its data to the page.
+    //here let's get information about the player's current state
+    //if we wanna show more playlist data later we can send that in too
+    //console.log(playerResponse);
+    setTimeout(function () {
+      player.getCurrentState().then(function (playerState) {
+        //console.log(playerState);
+        playerDisplay(playerState);
+      });
+    }, 1000);
     $playBtn.setAttribute("data-state", "play");
-    $playBtn.classList.remove("fa-play");
-    $playBtn.classList.add("fa-pause");
+    //$playBtn.classList.remove("fa-play");
+    //$playBtn.classList.add("fa-pause");
   });
 }
 
@@ -83,8 +105,8 @@ function resumeTrack() {
     }
   }).then(function (playResponse) {
     $playBtn.setAttribute("data-state", "play");
-    $playBtn.classList.remove("fa-play");
-    $playBtn.classList.add("fa-pause");
+    //$playBtn.classList.remove("fa-play");
+    //$playBtn.classList.add("fa-pause");
   });
 }
 
@@ -97,12 +119,27 @@ function pauseTrack() {
     }
   }).then(function (pauseResponse) {
     $playBtn.setAttribute("data-state", "pause");
-    $playBtn.classList.remove("fa-pause");
-    $playBtn.classList.add("fa-play");
+    // $playBtn.classList.remove("fa-pause");
+    // $playBtn.classList.add("fa-play");
   });
 }
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 //OTHER FUNCTIONS
+function playerDisplay(playerState) {
+  console.log(playerState);
+  //set current song
+  currentSong = playerState.track_window.current_track.name;
+  //display current song
+  $trackTitleSlot.textContent = currentSong;
+
+  //set current artist
+  currentArtist = playerState.track_window.current_track.artists[0].name;
+  $trackArtistSlot.textContent = currentArtist; //hardcoding first index for now... maybe change to concatenate all with a for each or for loop
+
+  $albumArtSlot.setAttribute("src", playerState.track_window.current_track.album.images[0].url);
+  $albumArtSlot.setAttribute("alt", currentArtist + "'s Album: " + playerState.track_window.current_track.album.name);
+}
+
 function selectCategory(){
   getCategorysPlaylists($categorySelect.value);
 }

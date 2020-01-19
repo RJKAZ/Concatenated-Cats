@@ -74,7 +74,7 @@ if (access_token && (state == null || state !== storedState)) {
       .then(function (response) {
         console.log("logged in");
         $("#login-button").hide();
-        // $("#app-body").show();
+        $("#select-genre").removeClass("hide");
       });
   }
 }

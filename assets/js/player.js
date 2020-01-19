@@ -5,11 +5,13 @@ HANDLE INITIALIZE PLAYER
 */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 // turn on spotify player
+let player;
+
 window.onSpotifyWebPlaybackSDKReady = () => {
 
   const token = getHashParams().access_token;
 
-  const player = new Spotify.Player({
+  player = new Spotify.Player({
     name: 'Web Player - Lyrics App',
     getOAuthToken: cb => {
       cb(token);
