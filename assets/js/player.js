@@ -42,6 +42,7 @@ window.onSpotifyWebPlaybackSDKReady = () => {
         //console.log(playerState);
         playerDisplay(playerState);
         updateTrackMap(playerState);
+        returnLyrics();
       });
     }, 1000);
   });
