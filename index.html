@@ -50,11 +50,11 @@
       <div id="artist-now"></div>
     </div c>
     <div id="playback_controls">
-      <button onclick="skip('back')"><i class="fa fa-fast-backward"></i></button>
+      <button id="prev-button"><i class="fa fa-fast-backward"></i></button>
       <button id="play-button"><i class="fa fa-play"></i><i class="fa fa-pause"></i></button>
       <button onclick="stop()"><i class="fa fa-stop"></i></button>
       <!-- stop means that we should clear what's currently playing... i have to figure out how to do this -->
-      <button onclick="skip('fwd')"><i class="fa fa-fast-forward"></i></button>
+      <button id="next-button"><i class="fa fa-fast-forward"></i></button>
     </div>
     <!-- <div id="seekbar">
       <input type="range" oninput="setPos(this.value)" id="seek" value="0" max="">

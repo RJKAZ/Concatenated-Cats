@@ -10,6 +10,8 @@ var $loginBtn = document.querySelector("#login-button");
 
 //music controls
 var $playBtn = document.querySelector("#play-button");
+var $prevBtn = document.querySelector("#prev-button");
+var $nextBtn = document.querySelector("#next-button");
 
 //for displaying current track
 var $albumArtSlot = document.querySelector("#albumart-now");
@@ -129,6 +131,8 @@ function pauseTrack() {
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 //OTHER FUNCTIONS
 function updateTrackMap(playerState){
+  //so just a heads up getcurrentstate only shows next two and prev two songs. if we want to display more we will have to display thru getplaylist instead
+
   $queuedTracks.textContent = "";
   console.log("change");
   //we will add previous tracks (if any), current track, and next tracks
@@ -234,12 +238,23 @@ function handlePlayPause(){
       //change it to play
       resumeTrack();
     }
+}
 
+function skipPrevSong(){
+  player.previousTrack();
+  //since the player state is updating we shouldnt need to call anything else here
+}
+
+function skipNextSong() {
+  player.nextTrack();
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 // EVENT LISTENERS
 $loginBtn.addEventListener("click", spotifyLogin); //this is in oauth file
+$prevBtn.addEventListener("click", skipPrevSong);
+$nextBtn.addEventListener("click", skipNextSong);
+
 $playBtn.addEventListener("click", handlePlayPause);
 $categorySelect.addEventListener("change", selectCategory);
 
