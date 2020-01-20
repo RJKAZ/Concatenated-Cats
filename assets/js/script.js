@@ -16,6 +16,9 @@ var $albumArtSlot = document.querySelector("#albumart-now");
 var $trackArtistSlot = document.querySelector("#artist-now");;
 var $trackTitleSlot = document.querySelector("#title-now");
 
+//for displaying tracks
+var $queuedTracks = document.querySelector("#playedbox");;
+
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 //OTHER VARIABLES
 var currentSong;
@@ -125,6 +128,82 @@ function pauseTrack() {
 }
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 //OTHER FUNCTIONS
+function updateTrackMap(playerState){
+  $queuedTracks.textContent = "";
+  console.log("change");
+  //we will add previous tracks (if any), current track, and next tracks
+  (playerState.track_window.previous_tracks).forEach(function(prevTrack){
+    //create new previous track div
+    var $prevTrack = document.createElement("div");
+    //give the div appropriate attributes
+    $prevTrack.classList.add("past-track");
+    $prevTrack.setAttribute("data-uri", prevTrack.uri);
+
+    //add the title and artist
+    var $ptTitle = document.createElement("div");
+    $ptTitle.classList.add("playlist-title");
+    $ptTitle.textContent = prevTrack.name;
+
+    var $ptArtist = document.createElement("div");
+    $ptArtist.classList.add("playlist-artist");
+    $ptArtist.textContent = prevTrack.artists[0].name;
+    
+    //append the content to the div
+    $prevTrack.appendChild($ptTitle);
+    $prevTrack.appendChild($ptArtist);
+
+    //append the content to the tracks display div
+    $queuedTracks.appendChild($prevTrack);
+  });
+
+  //current song stuff
+  //create new current track div
+  var $currTrack = document.createElement("div");
+      //give the div appropriate attributes
+  $currTrack.classList.add("current-track");
+  $currTrack.setAttribute("data-uri", playerState.track_window.current_track.uri);
+
+    //add the title and artist
+  var $ctTitle = document.createElement("div");
+  $ctTitle.textContent = currentSong;
+  $ctTitle.classList.add("playlist-title");
+
+  var $ctArtist = document.createElement("div");
+  $ctArtist.textContent = currentArtist;
+  $ctArtist.classList.add("playlist-artist");
+    //append the content to the div
+  $currTrack.appendChild($ctTitle);
+  $currTrack.appendChild($ctArtist);
+
+    //append the content to the tracks display div
+  $queuedTracks.appendChild($currTrack);
+
+  //next song stuff... we can create a function to format stuff for both prev and next song stuff if we want to save code
+  //create new next track div
+  (playerState.track_window.next_tracks).forEach(function(nextTrack){
+    var $nextTrack = document.createElement("div");
+    //give the div appropriate attributes
+    $nextTrack.classList.add("next-track");
+    $nextTrack.setAttribute("data-uri", nextTrack.uri);
+
+    //add the title and artist
+    var $ntTitle = document.createElement("div");
+    $ntTitle.classList.add("playlist-title");
+    $ntTitle.textContent = nextTrack.name;
+
+    var $ntArtist = document.createElement("div");
+    $ntArtist.classList.add("playlist-artist");
+    $ntArtist.textContent = nextTrack.artists[0].name;
+
+    //append the content to the div
+    $nextTrack.appendChild($ntTitle);
+    $nextTrack.appendChild($ntArtist);
+
+    //append the content to the tracks display div
+    $queuedTracks.appendChild($nextTrack);
+  });
+}
+
 function playerDisplay(playerState) {
   console.log(playerState);
   //set current song
