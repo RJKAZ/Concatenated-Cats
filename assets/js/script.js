@@ -7,6 +7,7 @@ HANDLE INTERACTING WITH THE PAGE AND WITH OTHER SCRIPTS
 //DOM VARIABLES
 var $categorySelect = document.querySelector("#category-select"); //refers to the select form element
 var $loginBtn = document.querySelector("#login-button");
+var $lyricBox = document.querySelector("#lyricbox");
 
 //music controls
 var $playBtn = document.querySelector("#play-button");
@@ -129,7 +130,8 @@ function pauseTrack() {
   });
 }
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-//OTHER FUNCTIONS
+//OTHER FUNCTION
+
 function updateTrackMap(playerState){
   //so just a heads up getcurrentstate only shows next two and prev two songs. if we want to display more we will have to display thru getplaylist instead
 

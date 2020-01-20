@@ -1,22 +1,16 @@
 //lyric parameters
 
-var queryURL = `https://api.lyrics.ovh/v1/`
-var artist = "coldplay";
-var title = "clocks";
+var lyricQueryURL = `https://api.lyrics.ovh/v1/`
 
-$.ajax({
-    url:  queryURL + artist + "/" + title,
-    method: "GET"
-}).then(function(response){
-    console.log(response);
+function returnLyrics(){
+    $lyricBox.textContent = "";
+    $.ajax({
+        url: lyricQueryURL + currentArtist + "/" + currentSong,
+        method: "GET"
+    }).then(function (lyricResponse) {
+        
+        $lyricBox.textContent = lyricResponse.lyrics;
+        //let's also display a message when this search returns nothing
+    });
 
-    //Artist
-    
-    var Coldplay = $("<p>").text("Coldplay: " + response.lyrics);
-
-   
-    $("#artists").prepend(Coldplay);
-});
-
-
-// Genre selector dropdown list
+}
