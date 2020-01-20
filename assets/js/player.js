@@ -64,6 +64,7 @@ window.onSpotifyWebPlaybackSDKReady = () => {
 
 // SET SPOTIFY WEB PLAYER TO BROWSER
 function setWebPlayer(playerId, access_token) {
+  //player.disconnect();
   $.ajax({
     url: "https://api.spotify.com/v1/me/player",
     method: "PUT",
