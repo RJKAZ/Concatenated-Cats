@@ -1,3 +1,30 @@
+.current-track {
+ background-color: white;
+}
+
+.past-track, .next-track {
+  background-color: lightgray;
+}
+
+.past-track, .next-track, .current-track {
+  border-top: 1px solid darkgray;
+  padding: 15px 0px;
+}
+
+.playedbox:first-child{
+  border-style: none!important;
+  /* check reference for how to apply inner border targeting nth child */
+}
+
+.playlist-title{
+  font-weight: bold;
+}
+
+.playlist-artist {
+  opacity: 80%;
+  font-style: italic;
+}
+
 .header {
   background-image: linear-gradient(black, #7986cb);
   color: white;
