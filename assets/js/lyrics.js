@@ -19,7 +19,7 @@ function returnLyrics(){
         $lyricBox.innerHTML = lyricsFormat;
         //how will we format this to have a different line for each return
 
-        console.log(lyricResponse.lyrics);
+        //console.log(lyricResponse.lyrics);
        
     });
 

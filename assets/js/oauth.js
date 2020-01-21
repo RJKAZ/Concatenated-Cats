@@ -11,7 +11,7 @@ let stateKey = 'spotify_auth_state';
 // on load, try to pull access_token from URL parameters
 // localhost:8000?access_token=[token]&state=[state]
 const params = getHashParams();
-console.log(params);
+//console.log(params);
 
 // save access_token, state, and stored state into variables
 let access_token = params.access_token,
@@ -56,7 +56,7 @@ function generateRandomString(length) {
 // if there's an access_token and state is either null OR doesn't equal stored
 // state, then let user know there's an issue with authentication
 if (access_token && (state == null || state !== storedState)) {
-  console.log("You need to login.");
+  //console.log("You need to login.");
   spotifyLogin();
 } else {
 
@@ -72,7 +72,7 @@ if (access_token && (state == null || state !== storedState)) {
         }
       })
       .then(function (response) {
-        console.log("logged in");
+        //console.log("logged in");
         Swal.fire({
           toast: true,
           position: 'top-end',
@@ -105,7 +105,7 @@ function spotifyLogin() {
   url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
   url += '&state=' + encodeURIComponent(state);
 
-  console.log(url);
+  //console.log(url);
   // change pages and go to the spotify login page
   window.location = url;
 }
