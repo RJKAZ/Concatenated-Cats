@@ -1,3 +1,8 @@
+:root{
+  --header-font: Arial;
+  --text-font: "comic sans";
+}
+
 * {
   margin: 0;
   box-sizing: border-box;
