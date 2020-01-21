@@ -1,3 +1,12 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  width: 100%;
+} 
+
 .current-track {
  background-color: white;
 }
@@ -26,10 +35,10 @@
 }
 
 .header {
-  background-image: linear-gradient(black, #7986cb);
+  background-image: linear-gradient(black, #7986cb); 
+  width: 100%;
   color: white;
   height: 100px;
-  margin-left: 50px;
   margin-right: 50px;
   text-align: center;
 
@@ -65,13 +74,18 @@
 
 #lyricbox {
   float: left;
-  background:lightgray;
+  background:#7986cb;
+  color: aliceblue;
   width: 25%;
   height: 280px;
   border: 20px, solid black;
   outline: 100px black;
   text-align: center;
   overflow: scroll;
+}
+
+#lyricbox:hover {
+  background: #828FD9;
 }
 
 #artbox {
@@ -106,8 +120,24 @@ body {
   background-image: url("../images/testback.jpg");
   background-size: cover;
   bottom: 0;
+  background-repeat: no-repeat;
 }
 
 .hide {
   display: none;
 }
+
+
+
+/* Make it responsive */
+@media screen and (max-width: 768px) {
+
+  .header-wrapper {
+    width: 100%;
+    text-align: center;
+  }
+
+  .header-wrapper h1,
+  .header-wrapper nav {
+    width: 100%;
+  }
