@@ -99,6 +99,8 @@ function playPlaylist(playlistUri) {
       player.getCurrentState().then(function (playerState) {
         //console.log(playerState);
         playerDisplay(playerState);
+        $displayBody.classList.remove("hide");
+        $playerDiv.classList.remove("hide");
       });
     }, 1000);
     $playBtn.setAttribute("data-state", "play");
