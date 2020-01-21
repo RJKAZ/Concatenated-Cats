@@ -6,8 +6,13 @@ HANDLE INTERACTING WITH THE PAGE AND WITH OTHER SCRIPTS
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 //DOM VARIABLES
 var $categorySelect = document.querySelector("#category-select"); //refers to the select form element
-var $loginBtn = document.querySelector("#login-button");
+
+var $selectDiv = document.querySelector("#select-genre");
+var $displayBody = document.querySelector(".core-body");
+var $playerDiv = document.querySelector(".player-wrapper");
+
 var $lyricBox = document.querySelector("#lyricbox");
+
 
 //music controls
 var $playBtn = document.querySelector("#play-button");
@@ -253,7 +258,6 @@ function skipNextSong() {
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 // EVENT LISTENERS
-$loginBtn.addEventListener("click", spotifyLogin); //this is in oauth file
 $prevBtn.addEventListener("click", skipPrevSong);
 $nextBtn.addEventListener("click", skipNextSong);
 

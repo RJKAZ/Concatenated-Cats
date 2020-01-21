@@ -20,15 +20,33 @@ window.onSpotifyWebPlaybackSDKReady = () => {
 
   // Error handling
   player.addListener('initialization_error', ({ message }) => {
+    console.log("initialization");
     console.error(message);
   });
   player.addListener('authentication_error', ({ message }) => {
+    console.log("authentication");
+    // if need to authenticate, then have login modal pop up
+    Swal.fire({
+      icon: "warning",
+      title: "You need to log in.",
+      showCloseButton: true,
+      confirmButtonColor: "#1DB954",
+      confirmButtonText: "Log In"
+    }).then((result) => {
+      if (result.value) {
+        spotifyLogin();
+      }
+    });
     console.error(message);
   });
   player.addListener('account_error', ({ message }) => {
+    console.log("account");
     console.error(message);
+
+    Swal.fire("Your account doesn't have access");
   });
   player.addListener('playback_error', ({ message }) => {
+    console.log("playback");
     console.error(message);
   });
 
@@ -76,9 +94,19 @@ function setWebPlayer(playerId, access_token) {
   })
     .then(function (response) {
       console.log(response);
+      $selectDiv.classList.remove("hide");
+      $displayBody.classList.remove("hide");
+      $playerDiv.classList.remove("hide");
 
     })
     .catch(function (err) {
       console.log(err);
+      if (err.responseJSON.error.reason == "PREMIUM_REQUIRED") {
+        Swal.fire({
+          icon: "error",
+          title: "Not supported.",
+          text: "Log in with a Spotify Premium account."
+        });
+      }
     });
 }

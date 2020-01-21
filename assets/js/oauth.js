@@ -73,8 +73,14 @@ if (access_token && (state == null || state !== storedState)) {
       })
       .then(function (response) {
         console.log("logged in");
-        $("#login-button").hide();
-        $("#select-genre").removeClass("hide");
+        Swal.fire({
+          toast: true,
+          position: 'top-end',
+          icon: 'success',
+          title: 'Logged in!',
+          showConfirmButton: false,
+          timer: 1500
+        })
       });
   }
 }
