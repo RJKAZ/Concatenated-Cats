@@ -54,9 +54,9 @@ window.onSpotifyWebPlaybackSDKReady = () => {
   player.addListener('player_state_changed', state => {
     // console.log(state);
 
-    //so right now this shows whats currently playing according to player state BUT the play button doesnt work. on refresh we want it to clear what's currently playing. maybe do another function on pageload for that?
     setTimeout(function () {
       player.getCurrentState().then(function (playerState) {
+        //we want to see if track changes then run these
         //console.log(playerState);
         playerDisplay(playerState);
         updateTrackMap(playerState);
@@ -94,9 +94,7 @@ function setWebPlayer(playerId, access_token) {
   })
     .then(function (response) {
       console.log(response);
-      $selectDiv.classList.remove("hide");
-      $displayBody.classList.remove("hide");
-      $playerDiv.classList.remove("hide");
+      $selectDiv .classList.remove("hide");
 
     })
     .catch(function (err) {
