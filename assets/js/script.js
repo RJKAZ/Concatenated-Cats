@@ -70,7 +70,7 @@ function getCategorysPlaylists(categoryId) {
   }).then(function (playlistsResponse) {
     //lets get the uri of a random playlist for now, maybe later we will let user specify:
     var randomIndex = Math.floor(Math.random() * (playlistsResponse.playlists.items).length);
-    console.log(playlistsResponse.playlists.items[randomIndex]);
+    //console.log(playlistsResponse.playlists.items[randomIndex]);
     var playlistUri = playlistsResponse.playlists.items[randomIndex].uri;
 
     //we want to send the playlist to the player
@@ -79,7 +79,7 @@ function getCategorysPlaylists(categoryId) {
 }
 
 function playPlaylist(playlistUri) {
-  console.log(playlistUri);
+  //console.log(playlistUri);
   $.ajax({
     url: `https://api.spotify.com/v1/me/player/play?device_id=${playerId}`,
     method: "PUT",

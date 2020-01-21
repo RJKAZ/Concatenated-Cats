@@ -5,6 +5,8 @@ HANDLE INITIALIZE PLAYER
 */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 // turn on spotify player
+var songQueued;
+var songToPlay;
 let player;
 
 window.onSpotifyWebPlaybackSDKReady = () => {
@@ -56,11 +58,23 @@ window.onSpotifyWebPlaybackSDKReady = () => {
 
     setTimeout(function () {
       player.getCurrentState().then(function (playerState) {
-        //we want to see if track changes then run these
+        var songToPlay = playerState.track_window.current_track.uri;
+
+        // console.log(songQueued);
+        // console.log(songToPlay);
+
+        if (songQueued != songToPlay) {
+          console.log("SONG HAS CHANGED");
+          //we want to see if track changes then run these
+          playerDisplay(playerState);
+          updateTrackMap(playerState);
+          returnLyrics();
+
+        }
+
+        songQueued = songToPlay;
+
         //console.log(playerState);
-        playerDisplay(playerState);
-        updateTrackMap(playerState);
-        returnLyrics();
       });
     }, 1000);
   });
@@ -93,8 +107,8 @@ function setWebPlayer(playerId, access_token) {
     }
   })
     .then(function (response) {
-      console.log(response);
-      $selectDiv .classList.remove("hide");
+      //console.log(response);
+      $selectDiv.classList.remove("hide");
 
     })
     .catch(function (err) {
