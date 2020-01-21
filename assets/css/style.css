@@ -17,7 +17,7 @@
 
 .past-track, .next-track, .current-track {
   border-top: 1px solid darkgray;
-  padding: 15px 0px;
+  padding: 10px 0px;
 }
 
 .playedbox:first-child{
@@ -116,18 +116,17 @@
   font-size: 1rem;
 }
 
-body {
-  background-image: url("../images/testback.jpg");
+html { 
+  background: url(../images/testback.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  bottom: 0;
-  background-repeat: no-repeat;
 }
 
 .hide {
   display: none;
 }
-
-
 
 /* Make it responsive */
 @media screen and (max-width: 768px) {
