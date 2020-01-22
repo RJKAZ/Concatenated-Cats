@@ -87,7 +87,7 @@ if (access_token && (state == null || state !== storedState)) {
 // LOG INTO SPOTIFY
 function spotifyLogin() {
   const client_id = spotify_CLIENT; // Your client id
-  const redirect_uri = (location.hostname === "127.0.0.1") ? "http://127.0.0.1:5502" : 'https://alexrosenkranz.github.io/spotify-auth';
+  const redirect_uri = (location.hostname === "127.0.0.1") ? "http://127.0.0.1:5502" : 'https://rjkaz.github.io/Concatenated-Cats';
 
   // generate random state key
   const state = generateRandomString(16);
