@@ -1,6 +1,15 @@
+:root {
+  --header-font: 'Merriweather', serif;
+  --tect-font: "comic sans"
+}
+
 * {
   margin: 0;
   box-sizing: border-box;
+}
+
+h1, h2 {
+font-family: var(--header-font);
 }
 
 .wrapper {
@@ -41,10 +50,10 @@
   height: 100px;
   margin-right: 50px;
   text-align: center;
-
 }
 
 .core-body {
+  padding-left: 30px;
   height: 300px;
   margin-left: 50px;
   margin-right: 50px;
@@ -52,13 +61,14 @@
 
 .flex-player {
   display: flex;
-  height: 100px;
+  height: 120px;
   width: 100%;
   background-image: linear-gradient(#7986cb, black);
   text-align: center;
   position: fixed;
   bottom: 0;
   justify-content: center;
+  font-family: (var(--header-font));
   
 }
 
@@ -75,6 +85,7 @@
 #lyricbox {
   float: left;
   background:#7986cb;
+  
   color: aliceblue;
   width: 25%;
   height: 280px;
@@ -95,13 +106,13 @@
   text-align: center;
 }
 
+
 #playedbox {
   float: right;
   background:lightgray;
   width: 25%;
   height: 280px;
   text-align: center;
-
 }
 
 .currentsong-info {
@@ -129,9 +140,31 @@ html {
 }
 
 /* Make it responsive */
+
 @media screen and (max-width: 768px) {
 
-  .header-wrapper {
+
+}
+  @media only screen and (max-width: 600px) {
+    #lyricbox, #artbox, #playedbox 
+     {
+      float: none;
+      height: 200px;
+      width: 200px;
+      flex: none;
+      margin: auto;
+      margin-bottom: 20px;
+
+    }
+    #albumart-now {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+
+
+  /* .header-wrapper {
     width: 100%;
     text-align: center;
   }
@@ -139,4 +172,4 @@ html {
   .header-wrapper h1,
   .header-wrapper nav {
     width: 100%;
-  }
+  }  */
