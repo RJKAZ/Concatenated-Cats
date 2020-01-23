@@ -46,16 +46,19 @@
 
   <div class="flex-player">
     <div class="player-wrapper hide">
+      
+      <div id="playback_controls">
+        <img src="assets/back button.png" id="prev-button" width="90px" onclick="previous();">
+        <img src="assets/play pause button.png" id="play-button" width="90px" onclick="play();">
+        <img src="assets/foward button.png" id="next-button" width="90px" onclick="foward();">
+        <img src="assets/volume down.png" width="70px">
+        <input id="volumeSlider" class="volume-slider" type="range" min="0" max="1" step="0.01" onchange="adjustvolume();">
+        <img src="assets/volume up button.png" width="70px">
+      </div>
+
       <div class="currentsong-info">
         <div id="title-now"></div>
         <div id="artist-now"></div>
-      </div>
-      <div id="playback_controls">
-        <button id="prev-button"><i class="fa fa-fast-backward"></i></button>
-        <button id="play-button"><i class="fa fa-play"></i><i class="fa fa-pause"></i></button>
-        <button onclick="stop()"><i class="fa fa-stop"></i></button>
-        <!-- stop means that we should clear what's currently playing... i have to figure out how to do this -->
-        <button id="next-button"><i class="fa fa-fast-forward"></i></button>
       </div>
       <!-- <div id="seekbar">
       <input type="range" oninput="setPos(this.value)" id="seek" value="0" max="">
@@ -64,7 +67,7 @@
       <button id="mute" onclick="mute()"><i class="fa fa-volume-up"></i></button>
       <input type="range" id="volume" oninput="setVolume(this.value)" min="0" max="1" step="0.01" value="1">
     </div> -->
-    </div>
+    
   </div>
 </div>
 
