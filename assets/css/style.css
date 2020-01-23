@@ -24,13 +24,13 @@ font-family: var(--header-font);
   background-color: lightgray;
 }
 
-.past-track, .next-track, .current-track {
+#playedbox > div {
   border-top: 1px solid darkgray;
   padding: 10px 0px;
 }
 
-.playedbox:first-child{
-  border-style: none!important;
+#playedbox > div:first-child{
+  border-top: none;
   /* check reference for how to apply inner border targeting nth child */
 }
 
