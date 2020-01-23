@@ -8,24 +8,29 @@
   box-sizing: border-box;
 }
 
-h1, h2 {
+h1 {
 font-family: var(--header-font);
 }
+
+h2 {
+  font-family: "Segoe script";
+  color: #e700f3;
+  }
 
 .wrapper {
   width: 100%;
 } 
 
 .current-track {
- background-color: white;
+ background-color: #49222c;
 }
 
 .past-track, .next-track {
-  background-color: lightgray;
+  background-color: black;
 }
 
 #playedbox > div {
-  border-top: 1px solid darkgray;
+  border-top: 1px solid black;
   padding: 10px 0px;
 }
 
@@ -44,10 +49,11 @@ font-family: var(--header-font);
 }
 
 .header {
-  background-image: linear-gradient(black, #7986cb); 
+  background: black; 
   width: 100%;
   color: white;
   height: 100px;
+  
   margin-right: 50px;
   text-align: center;
 }
@@ -63,17 +69,18 @@ font-family: var(--header-font);
   display: flex;
   height: 120px;
   width: 100%;
-  background-image: linear-gradient(#7986cb, black);
+  background: #2a1842;
   text-align: center;
   position: fixed;
   bottom: 0;
   justify-content: center;
   font-family: (var(--header-font));
+  box-shadow: 0px 0px 20px 10px #e700f3;
   
 }
 
 .flex-player > div {
-  background-color:#7986cb;
+  background-color:black;
   margin:10px;
   padding:20px;
   font-size: 30px;
@@ -82,21 +89,31 @@ font-family: var(--header-font);
   margin-right: 50px;
 }
 
+#playback_controls {
+  float:left;
+}
+
+#currentsong-info {
+  float: right;
+}
+
 #lyricbox {
   float: left;
-  background:#7986cb;
-  
-  color: aliceblue;
+  background: black;
+  color:  #e700f3;
   width: 25%;
   height: 280px;
   border: 20px, solid black;
   outline: 100px black;
   text-align: center;
   overflow: scroll;
+  border-radius: 25px;
+  box-shadow: 0px 0px 10px 10px #e700f3;
 }
 
 #lyricbox:hover {
-  background: #828FD9;
+  background: #e700f3;
+  color: black;
 }
 
 #artbox {
@@ -106,29 +123,50 @@ font-family: var(--header-font);
   text-align: center;
 }
 
+#alubumart-now {
+  box-shadow: 0px 0px 10px 10px #e700f3;
+}
+
 
 #playedbox {
   float: right;
-  background:lightgray;
+  background:black;
   width: 25%;
   height: 280px;
   text-align: center;
+  border-radius: 25px;
+}
+
+.past-track {
+  color: #e700f3;
+}
+
+.next-track {
+  color: #e700f3;
+}
+
+.current-track {
+  color: #e700f3
 }
 
 .currentsong-info {
   text-align: center;
+  color:  #e700f3;
 }
 
 #title-now {
   font-size: 1.5rem;
+  color:  #e700f3;
 }
 
 #artist-now {
   font-size: 1rem;
+  color:  #e700f3;
 }
 
+
 html { 
-  background: url(../images/testback.jpg) no-repeat center center fixed; 
+  background: url(../purplerrain2.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
