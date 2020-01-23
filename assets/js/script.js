@@ -21,11 +21,15 @@ var $nextBtn = document.querySelector("#next-button");
 
 //for displaying current track
 var $albumArtSlot = document.querySelector("#albumart-now");
-var $trackArtistSlot = document.querySelector("#artist-now");;
+var $trackArtistSlot = document.querySelector("#artist-now");
 var $trackTitleSlot = document.querySelector("#title-now");
 
 //for displaying tracks
-var $queuedTracks = document.querySelector("#playedbox");;
+var $queuedTracks = document.querySelector("#playedbox");
+
+//checking screen size
+var smallScreen = window.matchMedia("(max-width: 750px)");
+var largeScreen = window.matchMedia("(min-width: 1600px)");
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 //OTHER VARIABLES
@@ -227,9 +231,14 @@ function playerDisplay(playerState) {
   //set current artist
   currentArtist = playerState.track_window.current_track.artists[0].name;
   $trackArtistSlot.textContent = currentArtist; //hardcoding first index for now... maybe change to concatenate all with a for each or for loop
-
-  $albumArtSlot.setAttribute("src", playerState.track_window.current_track.album.images[0].url);
+  
+  console.log(playerState.track_window.current_track.album);
+  //0 med, 1 is small, 2 is large
+  $albumArtSlot.setAttribute("data-smallArt", playerState.track_window.current_track.album.images[1].url);
+  $albumArtSlot.setAttribute("data-medArt", playerState.track_window.current_track.album.images[0].url);
+  $albumArtSlot.setAttribute("data-largeArt", playerState.track_window.current_track.album.images[2].url);
   $albumArtSlot.setAttribute("alt", currentArtist + "'s Album: " + playerState.track_window.current_track.album.name);
+  smallScreenArtCheck(smallScreen);
 }
 
 function selectCategory(){
@@ -258,6 +267,29 @@ function skipNextSong() {
   player.nextTrack();
 }
 
+function smallScreenArtCheck(screenCheck){
+  if (screenCheck.matches){
+    var imgSrc = $albumArtSlot.getAttribute("data-medArt");
+    $albumArtSlot.setAttribute("src", imgSrc);
+  } else {
+    largeScreenArtCheck(largeScreen);
+  }
+}
+
+function largeScreenArtCheck(screenCheck){
+  if (screenCheck.matches){
+    var imgSrc = $albumArtSlot.getAttribute("data-largeArt");
+    $albumArtSlot.setAttribute("src", imgSrc);
+  } else {
+    medScreenArtCheck();
+  }
+}
+
+function medScreenArtCheck(){
+  var imgSrc = $albumArtSlot.getAttribute("data-medArt");
+    $albumArtSlot.setAttribute("src", imgSrc);
+}
+
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 // EVENT LISTENERS
 $prevBtn.addEventListener("click", skipPrevSong);
@@ -265,6 +297,13 @@ $nextBtn.addEventListener("click", skipNextSong);
 
 $playBtn.addEventListener("click", handlePlayPause);
 $categorySelect.addEventListener("change", selectCategory);
+
+smallScreen.addEventListener("change", function(){
+  smallScreenArtCheck(smallScreen);
+});
+largeScreen.addEventListener("change", function(){
+  smallScreenArtCheck(smallScreen);
+});
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 //on pageload, get categories:
