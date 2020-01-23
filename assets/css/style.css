@@ -142,7 +142,10 @@ html {
 /* Make it responsive */
 
 @media screen and (max-width: 768px) {
-
+  #albumart-now {
+    width: 100%;
+    height: 100%;
+  }
 
 }
   @media only screen and (max-width: 600px) {
@@ -155,21 +158,5 @@ html {
       margin: auto;
       margin-bottom: 20px;
 
-    }
-    #albumart-now {
-      width: 100%;
-      height: 100%;
-    }
+    } 
   }
-
-
-
-  /* .header-wrapper {
-    width: 100%;
-    text-align: center;
-  }
-
-  .header-wrapper h1,
-  .header-wrapper nav {
-    width: 100%;
-  }  */
