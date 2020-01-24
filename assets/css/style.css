@@ -67,7 +67,7 @@ h2 {
 
 .flex-player {
   display: flex;
-  height: 120px;
+  height: 200px;
   width: 100%;
   background: #2a1842;
   text-align: center;
@@ -80,7 +80,6 @@ h2 {
 }
 
 .flex-player > div {
-  background-color:black;
   margin:10px;
   padding:20px;
   font-size: 30px;
@@ -89,12 +88,26 @@ h2 {
   margin-right: 50px;
 }
 
-#playback_controls {
-  float:left;
+.player-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
 }
 
-#currentsong-info {
-  float: right;
+#playback_controls {
+  align-self: center;
+}
+
+.currentsong-info {
+  align-self: center;
+  margin: 0 10px;
+  background-color: black;
+  margin:10px;
+  padding:20px;
+  font-size: 30px;
+  border-radius: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 #lyricbox {
@@ -109,6 +122,7 @@ h2 {
   overflow: scroll;
   border-radius: 25px;
   box-shadow: 0px 0px 10px 10px #e700f3;
+  padding: 20px;
 }
 
 #lyricbox:hover {
