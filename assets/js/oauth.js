@@ -79,7 +79,9 @@ if (access_token && (state == null || state !== storedState)) {
           icon: 'success',
           title: 'Logged in!',
           showConfirmButton: false,
-          timer: 1500
+          timer: 1500,
+          background: "black", 
+          border: "#e700f3"
         })
       });
   }

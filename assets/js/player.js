@@ -32,8 +32,9 @@ window.onSpotifyWebPlaybackSDKReady = () => {
       icon: "warning",
       title: "You need to log in.",
       showCloseButton: true,
-      confirmButtonColor: "#1DB954",
-      confirmButtonText: "Log In"
+      confirmButtonColor: "#e700f3",
+      confirmButtonText: "Log In",
+      background: "black"
     }).then((result) => {
       if (result.value) {
         spotifyLogin();
@@ -117,7 +118,9 @@ function setWebPlayer(playerId, access_token) {
         Swal.fire({
           icon: "error",
           title: "Not supported.",
-          text: "Log in with a Spotify Premium account."
+          text: "Log in with a Spotify Premium account.",
+          confirmButtonColor: "#2a1842",
+          background: "black"
         });
       }
     });

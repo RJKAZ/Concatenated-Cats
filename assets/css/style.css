@@ -38,6 +38,10 @@
 
 }
 
+.swal2-toast{
+  box-shadow: 0px 0px 5px 5px #e700f3!important;
+}
+
 h1 {
 font-family: var(--header-font);
 }
@@ -60,13 +64,13 @@ h2 {
 }
 
 #playedbox > div {
+  border-radius: 15px;
   border-top: 1px solid black;
   padding: 10px 0px;
 }
 
 #playedbox > div:first-child{
   border-top: none;
-  /* check reference for how to apply inner border targeting nth child */
 }
 
 .playlist-title{
@@ -155,16 +159,19 @@ h2 {
 
 #albumart-now {
   box-shadow: 0px 0px 10px 10px #e700f3;
+  border-radius: 10px;
 }
 
 
 #playedbox {
+  padding: 10px;
   float: right;
   background:black;
   width: 25%;
   height: 280px;
   text-align: center;
-  border-radius: 25px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px 10px #e700f3;
 }
 
 .past-track {
