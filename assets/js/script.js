@@ -308,3 +308,4 @@ largeScreen.addEventListener("change", function(){
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 //on pageload, get categories:
 getCategories();
+

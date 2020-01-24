@@ -109,7 +109,9 @@ function setWebPlayer(playerId, access_token) {
   })
     .then(function (response) {
       //console.log(response);
-      $selectDiv.classList.remove("hide");
+      setTimeout(function(){
+        $selectDiv.classList.remove("hide");
+      }, 3550)
 
     })
     .catch(function (err) {

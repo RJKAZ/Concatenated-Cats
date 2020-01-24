@@ -56,15 +56,24 @@ function generateRandomString(length) {
 // if there's an access_token and state is either null OR doesn't equal stored
 // state, then let user know there's an issue with authentication
 if (access_token && (state == null || state !== storedState)) {
+
   //console.log("You need to login.");
   spotifyLogin();
 } else {
+  //on pageload let's fire up this pop up to show user stuff is loading up
+  Swal.fire({
+    title: "Welcome to our lyrics player!",
+    text: "Checking you in...",
+    showConfirmButton: false,
+    background: "black",
+  });
 
   // if authentication is successful, remove item from localStorage
   localStorage.removeItem(stateKey);
   // if there's an access token, get user information
   if (access_token) {
-    $
+    setTimeout(function(){
+      $
       .ajax({
         url: 'https://api.spotify.com/v1/me',
         headers: {
@@ -83,7 +92,11 @@ if (access_token && (state == null || state !== storedState)) {
           background: "black", 
           border: "#e700f3"
         })
+
       });
+      
+    }, 3500);
+    
   }
 }
 // LOG INTO SPOTIFY
