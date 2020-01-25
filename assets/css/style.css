@@ -38,6 +38,18 @@
 
 }
 
+#prev-button:active {
+  transform:translateY(10px);
+}
+
+#play-button:active {
+  transform:translateY(10px);
+}
+
+#next-button:active {
+  transform:translateY(10px);
+}
+
 .swal2-toast{
   box-shadow: 0px 0px 5px 5px #e700f3!important;
 }
@@ -213,16 +225,6 @@ h2 {
 #artist-now {
   font-size: 1rem;
   color:  #e700f3;
-}
-
-.playback_controls:hover {
-  background-color: orange;
-}
-
-.playback_controls:active {
-  background-color: orange;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
 }
 
 
