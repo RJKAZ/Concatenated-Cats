@@ -215,6 +215,16 @@ h2 {
   color:  #e700f3;
 }
 
+.playback_controls:hover {
+  background-color: orange;
+}
+
+.playback_controls:active {
+  background-color: orange;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 
 html { 
   background: url(../purplerrain2.jpg) no-repeat center center fixed; 
